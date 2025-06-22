@@ -13,37 +13,37 @@ DCode stands for Distance Code, a distance based linear code for describing the 
 
 ### Steps and Rules
 
-​	1.Generating the 3D coordinates with MMFF (maximum of 20 runs with 200 iterations each).
+#### Generating the 3D coordinates with MMFF (maximum of 20 runs with 200 iterations each).
 
-​	2.Generating the DCode atom name
+#### Generating the DCode atom name
 
-​		1.Hydrogens remain simply H
+1. Hydrogens remain simply H
 
-​		2.The first element is the atomic symbol (C, S, Br, etc.)
+2. The first element is the atomic symbol (C, S, Br, etc.)
 
-​		3.The second element is the number of neighbors (atom.GetNeighbors())
+3. .The second element is the number of neighbors (atom.GetNeighbors())
 
-​		4.Ring: "r" for an atom in a ring and "n" for an atom not in a ring.
+4. Ring: "r" for an atom in a ring and "n" for an atom not in a ring.
 
-​		5.Chirality: Default is No
+5. Chirality: Default is No
+   - ​			CHI_ALLENE = Al
 
-​			1.CHI_ALLENE = Al
+   - ​			CHI_OCTAHEDRAL = Ot
 
-​			2.CHI_OCTAHEDRAL = Ot
+   - ​			CHI_OTHER = Oh
 
-​			3.CHI_OTHER = Oh
+   - ​			CHI_SQUAREPLANAR = Sp
 
-​			4.CHI_SQUAREPLANAR = Sp
+   - ​			CHI_TETRAHEDRAL = Tt
 
-​			5.CHI_TETRAHEDRAL = Tt
+   - ​			CHI_TETRAHEDRAL_CCW = CC
 
-​			6.CHI_TETRAHEDRAL_CCW = CC
+   - ​			CHI_TETRAHEDRAL_CW = CW
 
-​			7.CHI_TETRAHEDRAL_CW = CW
+   - ​			CHI_TRIGONALBIPYRAMIDAL = Bp
 
-​			8.CHI_TRIGONALBIPYRAMIDAL = Bp
 
- 	3. Build the final DCode
+#### Build the final DCode
 
 
 
@@ -89,3 +89,37 @@ With a chemical shift of -45.8 ppm for C-Atom 1
 With a chemical shift of 292.5 for C- Atom 5:
 
 ![maximum](pictures/maximum.png)
+
+
+
+# First Checks
+
+## test conditions
+
+- 52 compounds, 48 of which were chosen at random
+
+- 419 chemical shifts
+
+- Minimum number of hits 1 (MinT=0) or 11 (MinT=10)
+
+- Minimum number of neighbours: 5 
+
+- The chemical shift was calculated as:
+
+  - arithmetic mean (Methode 1)
+
+  - geometric mean (Methode 2)
+
+  - Median (Methode 3)
+
+  - for at least 10 hits, the 5% trimmed mean; otherwise, the mean (Methode 4
+
+## Mean absolute errors (MAE)
+
+![mae](pictures/mae.png)
+
+## Error distribution for MinT=0
+
+This setting delivers better results, especially for Method 3 (Mean).
+
+![mae-distribution](pictures/mae-distribution.png)
