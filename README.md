@@ -3,7 +3,7 @@
 
 ## Binder (working example)
 Link to Binder: 
-[![Binder](https://mybinder.org/v2/gh/steto123/dcode/HEAD?urlpath=%2Fdoc%2Ftree%2Fcalc-shift-v.04.ipynb)
+[![Binder](https://mybinder.org/v2/gh/steto123/dcode/8d6b7615fea0cd2a4771eff32cec94889cb1704e?urlpath=lab%2Ftree%2Fcalc-shift-v.04.ipynb)
 
 
 
